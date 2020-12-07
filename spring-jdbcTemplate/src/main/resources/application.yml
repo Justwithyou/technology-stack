@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://10.9.20.210:3306/scds_local?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: root123
+    # MySQL8.0的驱动，使用com.mysql.cj.jdbc.Driver这个，而其他则使用com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
