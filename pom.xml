@@ -7,6 +7,10 @@
         <module>spring-starter</module>
         <module>spring-swagger</module>
         <module>spring-jdbcTemplate</module>
+        <module>shell-operation</module>
+        <module>workflow</module>
+        <module>excel-poi-util</module>
+        <module>mock-server</module>
     </modules>
 
     <parent>
