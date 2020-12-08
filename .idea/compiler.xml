@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mock-server" />
+        <module name="json-util" />
         <module name="spring-swagger" />
         <module name="workflow" />
         <module name="shell-operation" />
@@ -23,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="class-loader" options="-parameters" />
       <module name="excel-poi-util" options="-parameters" />
+      <module name="json-util" options="-parameters" />
       <module name="mock-server" options="-parameters" />
       <module name="shell-operation" options="-parameters" />
       <module name="spring-jdbcTemplate" options="-parameters" />

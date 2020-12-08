@@ -12,6 +12,7 @@
         <module>excel-poi-util</module>
         <module>mock-server</module>
         <module>class-loader</module>
+        <module>json-util</module>
     </modules>
 
     <parent>
