@@ -11,6 +11,7 @@
         <module>workflow</module>
         <module>excel-poi-util</module>
         <module>mock-server</module>
+        <module>class-loader</module>
     </modules>
 
     <parent>
