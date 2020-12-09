@@ -36,6 +36,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--
+            hibernate-validator依赖引入现在应使用以下方式，在org.hibernate.validator查找依赖包
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>6.0.2.Final</version>
+            </dependency>
+        -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.2.Final</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
