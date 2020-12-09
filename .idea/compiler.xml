@@ -11,10 +11,12 @@
         <module name="json-util" />
         <module name="spring-swagger" />
         <module name="workflow" />
+        <module name="thread-stack" />
         <module name="shell-operation" />
         <module name="spring-jdbcTemplate" />
         <module name="excel-poi-util" />
         <module name="spring-starter" />
+        <module name="data-encrypt" />
         <module name="class-loader" />
         <module name="maven-stack" />
       </profile>
@@ -23,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="class-loader" options="-parameters" />
+      <module name="data-encrypt" options="-parameters" />
       <module name="excel-poi-util" options="-parameters" />
       <module name="json-util" options="-parameters" />
       <module name="mock-server" options="-parameters" />
@@ -31,6 +34,7 @@
       <module name="spring-starter" options="-parameters" />
       <module name="spring-swagger" options="-parameters" />
       <module name="technology-stack" options="-parameters" />
+      <module name="thread-stack" options="-parameters" />
       <module name="workflow" options="-parameters" />
     </option>
   </component>

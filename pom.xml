@@ -13,6 +13,8 @@
         <module>mock-server</module>
         <module>class-loader</module>
         <module>json-util</module>
+        <module>thread-stack</module>
+        <module>data-encrypt</module>
     </modules>
 
     <parent>
@@ -21,7 +23,7 @@
         <version>2.2.5.RELEASE</version>
     </parent>
 
-    <groupId>org.spring.boot.technology.stack</groupId>
+    <groupId>com.technology.stack</groupId>
     <artifactId>technology-stack</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -67,7 +69,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.spring.boot.technology.stack.TechnologyStackApplication</mainClass>
+                    <mainClass>com.technology.stack.TechnologyStackApplication</mainClass>
                     <!-- 是否直接打包成可执行jar包 -->
                     <executable>true</executable>
                 </configuration>
