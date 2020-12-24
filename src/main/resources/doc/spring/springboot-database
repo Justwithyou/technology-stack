@@ -1,0 +1,192 @@
+# SpringBoot整合数据库操作
+
+SpringBoot访问关系型数据库的方式总结：
+
+1. spring-boot-starter-jdbc(jdbcTemplate)
+2. spring-boot-starter-data-jpa
+3. mybatis-spring-boot-starter
+
+**具体代码实现阅读spring-jdbc模块的代码**
+
+## jdbcTemplate
+
+## data-jpa
+
+JPA：Java Persistence API，基于O/R映射的标准规范，Hibernate和Spring Data JPA是它的实现方式
+
+Hibernate：通过O/R(Object-Relational Mapping)技术实现数据访问，O/R映射即将领域模型类和数据库表进行映射，通过
+程序操作对象而实现对表数据操作的能力，让数据访问操作无需关注数据库相关的技术
+
+Spring Data是Spring提供的对数据库的访问方式，Spring Data Jpa是Spring Data的子集，提供基于JPA的Repository极大 
+的减少了JPA作为数据访问方案的代码量
+
+使用依赖引入：
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+    <!-- 排除SpringBoot2.x默认的数据源HikariCP，如果使用druid连接池则需排除掉默认依赖，同时内部也引入了jdbc -->
+    <exclusions>
+        <exclusion>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </exclusion>  
+    </exclusions>
+</dependency>
+```
+
+相关配置规则（待补充）：
+```yaml
+spring: 
+    jpa: 
+      # 更新数据表结构
+      hebernate: 
+        ddl-auto: update
+      # 在日志中打印出执行sql的信息
+      show-sql: ture
+```
+
+### 核心注解
+
+实体类映射相关注解：
+
+> @Table：和数据库表对应，name属性可指定表名，如果省略则默认实体类名和表名一致
+>
+> @Entity：标识当前类是和数据库表映射的实体类
+>
+> @Id：主键
+>
+> @GeneratedValue：自增
+
+### 定义查询方法的方式
+
+（1） 根据属性名查询
+
+Spring-Data-Jpa可以根据接口中的方法名来定义查询，方法名则是根据实体类的属性名来定义的
+
+1） 常规查询，根据属性名来定义查询方法
+
+如：
+> findByName --> select * from dict where name = ?1
+> findByNameLike --> select * from dict where name like ?1 --> 如果使用like则需在参数前加%
+
+findBy可以使用find/read/readBy/query/queryBy/get/getBy等来代替
+
+2） 限制结果数量，结果数量是用top和first关键字实现的
+
+如：
+
+> findFirst10ByName --> 获取符合条件的前10条数据
+
+（2） 使用JPA的NamedQuery查询
+
+在实体类上使用@NamedQuery定义一个查询方法，在接口中指定即可，即一个名词映射一个查询语句
+
+> @Entity 
+> @NamedQuery(name = "Dict.findByName", query = "select * from dict where name = ?1")
+> public class dict {}
+> public interface dictDao extends JpaRepository<Dict, Long> {
+>   List<Dict> findByName(String name);
+> }
+
+（3） 使用@Query注解查询
+
+1） 使用参数索引，Spring Data JPA支持使用@Query注解在接口的方法上实现查询
+
+如：
+
+> @Query("select * from dict where name = ?1")
+> List<Dict> findByName(String name);
+
+2） 使用命名参数，Spring Data JPA支持在语句里使用名称来匹配查询参数
+
+如：
+
+> @Query("select * from dict where name = :name")
+> List<Dict> findByName(@Param("name") String name);
+
+3） 更新查询，Spring Data JPA支持@Modifying和@Query注解组合来实现更新查询
+
+如： 
+
+> @Modifying
+> @Transactional
+> @Query("update dict set name = ?1 where id = ?2")
+> int setName(String name, Integer id);
+
+（4） Specification
+
+JPA提供基于准则查询的方式，即Criteria查询；Spring Data JPA提供了一个Specification接口可以更方便的构造准则查询，Specification接口定义
+了一个toPredicate方法用来构造查询条件（使用场景较少，不展开描述）
+
+（5）排序与分页
+
+Spring Data JPA提供了Sort类以及Page接口和Pageable接口
+
+1） 定义
+
+```java
+/**
+ * 排序与分页
+ */
+public interface DictDao extends JpaRepository<Dict, Long> {
+    List<Dict> findByName(String name, Sort sort);
+    Page<Dict> findByName(String name, Pageable pageable);
+}
+```
+
+2） 使用排序
+
+> List<Dict> dictList = dictDao.findByName("dictName", new Sort(Direction.ASC, "id"));
+
+3） 使用分页
+
+> Page接口可以获取当前页的记录、总页数、总记录数、是否有上一页或下一页等
+> Page<Dict> dictPage = dictDao.findByName("dictName", new PageRequest(0, 10));
+
+···自定义Repository的实现
+
+## Mybatis
+
+与SpringBoot的整合
+
+1. 引入依赖
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>2.1.1</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+</dependencies>
+```
+关于版本适配：
+
+1） 2.1.x 版本适用于：Mybatis3.5+、Java8+、SpringBoot2.1+（维护）
+2） 2.0.x 版本适用于：Mybatis3.5+、Java8+、SpringBoot2.0/2.1（不再维护）
+3） 1.3.x 版本适用于：Mybatis3.4+、Java6+、SpringBoot1.5（维护）
+
+## 事务管理
+
+隔离级别：
+
+READ_UNCOMMITTED:未提交读
+READ_COMMITTED:提交读
+REPEATABLE_READ:可重复读
+SERIALIZABLE:串行化
+
+传播行为：在开始一个事务之前，如果一个事务上下文已经存在，此时可以有若干选项指定一个事务性方法的执行行为
+
+REQUIRED:如果当前存在事务，则加入该事务，如果不存在事务，则创建一个新的事务
+SUPPORTS:如果当前存在事务，则加入该事务，如果不存在事务，则以非事务的方式运行
+MANDATORY:如果当前存在事务，则加入该事务，如果不存在事务，则抛出异常
+REQUIRES_NEW:创建一个新的事务，如果当前存在事务，则把事务挂起
+NOT_SUPPORTED:以非事务方式运行，如果当前存在事务，则把事务挂起
+NEVER:以非事务方式运行，如果当前存在事务，则抛出异常
+NESTED:如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行，如果不存在事务，则该值等于REQUIRED

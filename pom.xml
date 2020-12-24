@@ -6,7 +6,7 @@
     <modules>
         <module>spring-starter</module>
         <module>spring-swagger</module>
-        <module>spring-jdbcTemplate</module>
+        <module>spring-jdbc</module>
         <module>shell-operation</module>
         <module>workflow</module>
         <module>excel-poi-util</module>
@@ -15,6 +15,7 @@
         <module>json-util</module>
         <module>thread-stack</module>
         <module>data-encrypt</module>
+        <module>spring-security</module>
     </modules>
 
     <parent>

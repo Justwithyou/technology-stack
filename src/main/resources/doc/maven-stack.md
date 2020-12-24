@@ -1,4 +1,10 @@
-# maven技术栈知识点归纳
+# maven知识点整理
+
+maven官网：[https://maven.apache.org/]
+
+maven仓库地址：[https://mvnrepository.com/]
+
+maven安装包下载：[http://maven.apache.org/docs/history.html]
 
 ## maven是什么？
 
@@ -32,8 +38,6 @@
 ## maven怎么用？
 
 ### maven的安装
-
-* maven安装包下载：[http://maven.apache.org/docs/history.html]
 
 **_windows和linux下安装文件不同_**
 

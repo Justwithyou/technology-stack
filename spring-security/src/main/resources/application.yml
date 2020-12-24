@@ -1,0 +1,9 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /spring-security
+spring:
+  security:
+    user:
+      name: security
+      password: security

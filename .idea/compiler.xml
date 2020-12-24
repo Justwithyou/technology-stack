@@ -8,15 +8,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mock-server" />
-        <module name="json-util" />
         <module name="spring-swagger" />
         <module name="workflow" />
-        <module name="thread-stack" />
         <module name="shell-operation" />
-        <module name="spring-jdbcTemplate" />
         <module name="excel-poi-util" />
-        <module name="spring-starter" />
         <module name="data-encrypt" />
+        <module name="json-util" />
+        <module name="thread-stack" />
+        <module name="spring-jdbc" />
+        <module name="spring-security" />
+        <module name="spring-starter" />
         <module name="class-loader" />
         <module name="maven-stack" />
       </profile>
@@ -30,7 +31,8 @@
       <module name="json-util" options="-parameters" />
       <module name="mock-server" options="-parameters" />
       <module name="shell-operation" options="-parameters" />
-      <module name="spring-jdbcTemplate" options="-parameters" />
+      <module name="spring-jdbc" options="-parameters" />
+      <module name="spring-security" options="-parameters" />
       <module name="spring-starter" options="-parameters" />
       <module name="spring-swagger" options="-parameters" />
       <module name="technology-stack" options="-parameters" />

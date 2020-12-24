@@ -2,6 +2,8 @@
 
 **本部分内容基于Java8版本**
 
+相关博文：[https://blog.csdn.net/javazejian/article/details/73413292/]
+
 每个.java文件都存储着需要执行的程序逻辑，这些.java文件经过编译编程扩展名为.class的文件，在.class文件中保存着Java代码经过转换后
 的虚拟机指令，当需要使用到某个类时，虚拟机会加载对应的.class文件，并创建对应的class对象，将class文件加载到虚拟机的内存，这个过程
 称为类加载

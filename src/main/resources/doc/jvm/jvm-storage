@@ -1,0 +1,36 @@
+# jvm内存模型
+
+## 内存模型
+
+可见性、原子性、有序性
+
+可见性：线程之间的可见性，一个线程的状态修改对另一个线程是可见的；在Java中volatile/synchronize/final实现了可见性
+
+原子性：原子是操作的最小单元，不可分割，Java中的concurrent包下提供了一些原子类，如AtomicInteger/AtomicLong等；在Java中
+       synchronize和lock/unlock保证了原子性
+ 
+有序性：Java语言提供了volatile和synchronize两个关键字保证线程之间的有序性，volatile是其本身禁止指令重排的语义，synchronize
+       是由一个变量在同一时刻只允许一条线程对其进行lock操作的的规则
+       
+### volatile关键字
+
+原理：会把变量的更新操作通知到其他线程，当把变量声明为volatile类型之后，编译器运行时会注意到该变量是共享的，因此不会将变量上的
+     操作和其他内存操作一起重排序，volatile变量不会被缓存在寄存器或者对其他处理器不可见的地方
+
+在访问volatile变量时不会执行加锁操作，因此也就不会执行线程阻塞，所以volatile变量是一种比synchronize关键字更轻量级的同步机制
+
+当对非volatile变量进行读写的时候，每个线程先从内存拷贝变量到CPU缓存中，如果计算机有多个CPU则线程可能在不同的CPU上被处理，这意味
+着每个线程可以拷贝到不同的CPU cache中，而声明变量是volatile时，JVM保证每次读变量都是从内存中读取，跳过CPU缓存
+
+当一个变量定义为volatile特性后，将具备两种特性：
+    1. 保证此变量对所有线程的可见性（即当一个线程修改了变量的状态，其他线程都可见）
+    2. 禁止指令重排优化
+
+### transient关键字
+
+transient声明的变量，通常不会被序列化
+
+原理：transient声明的变量只把变量存放在内存中
+
+> 1. 静态变量不会被序列化，即使没有transient关键字
+> 2. 被transient关键字修饰的变量，也可以通过实现Exteranlizable接口强制执行序列化

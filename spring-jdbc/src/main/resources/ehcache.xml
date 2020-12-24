@@ -1,0 +1,14 @@
+<!-- Ehcache 内置缓存实现配置文件
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd">
+
+    <cache name="users"
+           maxEntriesLocalHeap="200"
+           timeToLiveSeconds="600">
+    </cache>
+
+</ehcache>
+-->
+<config xmlns="http://www.springframework.org/schema/aop">
+
+</config>
