@@ -9,6 +9,9 @@
     <file url="file://$PROJECT_DIR$/shell-operation/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-jdbc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-jdbc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-kafka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-rabbitmq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-redis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-security/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-swagger/src/main/java" charset="UTF-8" />

@@ -16,6 +16,9 @@
         <module>thread-stack</module>
         <module>data-encrypt</module>
         <module>spring-security</module>
+        <module>spring-kafka</module>
+        <module>spring-redis</module>
+        <module>spring-rabbitmq</module>
     </modules>
 
     <parent>

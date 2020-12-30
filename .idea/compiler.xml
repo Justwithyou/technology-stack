@@ -10,6 +10,8 @@
         <module name="mock-server" />
         <module name="spring-swagger" />
         <module name="workflow" />
+        <module name="spring-rabbitmq" />
+        <module name="spring-kafka" />
         <module name="shell-operation" />
         <module name="excel-poi-util" />
         <module name="data-encrypt" />
@@ -20,6 +22,7 @@
         <module name="spring-starter" />
         <module name="class-loader" />
         <module name="maven-stack" />
+        <module name="spring-redis" />
       </profile>
     </annotationProcessing>
   </component>
@@ -32,6 +35,9 @@
       <module name="mock-server" options="-parameters" />
       <module name="shell-operation" options="-parameters" />
       <module name="spring-jdbc" options="-parameters" />
+      <module name="spring-kafka" options="-parameters" />
+      <module name="spring-rabbitmq" options="-parameters" />
+      <module name="spring-redis" options="-parameters" />
       <module name="spring-security" options="-parameters" />
       <module name="spring-starter" options="-parameters" />
       <module name="spring-swagger" options="-parameters" />

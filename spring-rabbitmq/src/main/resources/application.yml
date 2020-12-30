@@ -1,0 +1,20 @@
+server:
+  port: 8003
+  servlet:
+    context-path: /spring-rabbitmq
+# RabbitMQ配置
+spring:
+  appliction:
+    name: spring-rabitmq
+  rabbitmq:
+    host: locahost
+    port: 5672
+    username: guest
+    password: guest
+    # 虚拟主机
+    virtual-host: localhost
+    addresses: localhost
+    publisher-returns: false
+    publisher-confirm-type: SIMPLE
+    connection-timeout: 6000
+    parsed-addresses: 127.0.0.1,192.168.1.101
