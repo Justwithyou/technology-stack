@@ -213,6 +213,32 @@ bin/kafka-server-start.sh config/server.properties &
 
 偏移量无效时的消费位置配置：auto-offset-reset
 
+## Kafka Connect
+
+Kafka Connect是一种用于在Kafka和其他系统之间可扩展的、可靠的流式传输数据的工具，使得定义将大量数据集合输入和输出Kafka的
+连接器变得简单
+
+特点：
+
+1. Kafka Connector通用框架，提供统一的集成API
+2. 同时支持分布式模式和单机模式
+3. REST接口，用来查看和管理Kafka Connectors
+4. 自动化的offset管理
+5. 分布式、可扩展
+6. 流/批处理集成
+
+Kafka Connector的两个核心：source（负责输入数据到Kafka）和sink（负责输出Kafka数据），都被称为Connector
+
+相关概念：
+
+> Connector：通过管理task来协调数据流的高级抽象，定义数据的来源及去向
+> Task：如何将数据复制到Kafka或从Kafka复制数据的实现，
+> Workers：执行Connector和Task的运行进程
+> Converters：用于在Connector和外部系统发送或接收数据之间转换数据的代码
+> Transforms：更改由连接器生成或发送到连接器的每个消息的简单逻辑
+
+
+
 
 
 
