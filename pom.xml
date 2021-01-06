@@ -19,6 +19,7 @@
         <module>spring-kafka</module>
         <module>spring-redis</module>
         <module>spring-rabbitmq</module>
+        <module>spring-rocketmq</module>
     </modules>
 
     <parent>

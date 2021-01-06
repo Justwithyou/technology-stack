@@ -21,6 +21,7 @@
         <module name="spring-security" />
         <module name="spring-starter" />
         <module name="class-loader" />
+        <module name="spring-rocketmq" />
         <module name="maven-stack" />
         <module name="spring-redis" />
       </profile>
@@ -38,6 +39,7 @@
       <module name="spring-kafka" options="-parameters" />
       <module name="spring-rabbitmq" options="-parameters" />
       <module name="spring-redis" options="-parameters" />
+      <module name="spring-rocketmq" options="-parameters" />
       <module name="spring-security" options="-parameters" />
       <module name="spring-starter" options="-parameters" />
       <module name="spring-swagger" options="-parameters" />

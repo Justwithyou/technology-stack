@@ -1,0 +1,28 @@
+server:
+  port: 8005
+  servlet:
+    context-path: /spring-rocketmq
+# 如果要查看指定框架有哪些配置，可以查看依赖包中的RocketMQProperties类中有哪些属性
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    # 生产者组
+    group: spring-rocketmq
+    # 消息发布的超时时间，单位毫秒
+    send-message-timeout: 3000
+    # 消息体压缩阈值大小
+    compress-message-body-threshold: 1024 * 4
+    # 消息发布失败的重试次数（同步刷盘），默认为 2
+    retry-times-when-send-failed: 2
+    # 消息发布失败的重试次数（异步刷盘），默认为 2
+    retry-times-when-send-async-failed: 2
+    # 重试下一台机器
+    retry-next-server: false
+    # 消息最大大小
+    max-message-size: 1024 * 1024 * 4
+    access-key: access-key
+    secret-key: secret-key
+    enable-msg-trace: true
+  consumer:
+
+

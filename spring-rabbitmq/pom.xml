@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-rabbitmq</artifactId>
-    <name>spring kafka integration</name>
+    <name>spring rabbitmq integration</name>
 
     <dependencies>
         <dependency>

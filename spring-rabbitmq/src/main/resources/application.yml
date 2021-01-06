@@ -14,7 +14,18 @@ spring:
     # 虚拟主机
     virtual-host: localhost
     addresses: localhost
+    # 消息发送确认，消息发送到交换器后触发回调
+    publisher-confirms: false
+    # 消息发送确认，消息从交换器发送到队列失败时触发
     publisher-returns: false
     publisher-confirm-type: SIMPLE
     connection-timeout: 6000
     parsed-addresses: 127.0.0.1,192.168.1.101
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 5
+        # 消息接收确认模式：NONE(不确认)、AUTO(自动确认)、MANUAL(手动确认)
+        acknowledge-mode: manual
+

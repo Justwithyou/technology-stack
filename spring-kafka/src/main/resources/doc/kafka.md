@@ -237,6 +237,25 @@ Kafka Connector的两个核心：source（负责输入数据到Kafka）和sink�
 > Converters：用于在Connector和外部系统发送或接收数据之间转换数据的代码
 > Transforms：更改由连接器生成或发送到连接器的每个消息的简单逻辑
 
+## Kafka面试相关的博客
+
+Kafka常见面试题：[https://blog.csdn.net/qq_28900249/article/details/90346599]
+
+20道Kafka经典面试题详解：[https://www.jianshu.com/p/511962462e58]
+
+Kafka源码深度解析：[https://blog.csdn.net/u014252478/article/details/82224113]
+
+## Kafka监控系统
+
+Kafka Manager
+
+Kafka Monitor
+
+CruiseControl
+
+JMX监控（Zabbix/Prometheus）
+
+大数据平台（CDH/HDP）
 
 
 
