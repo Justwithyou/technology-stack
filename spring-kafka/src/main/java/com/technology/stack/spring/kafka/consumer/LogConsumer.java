@@ -46,7 +46,7 @@ public class LogConsumer {
             acknowledgment.acknowledge();
         }
 
-        KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<String, String>(new Properties());
+        KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(new Properties());
         kafkaConsumer.subscribe(Collections.emptyList());
     }
 
@@ -67,6 +67,13 @@ public class LogConsumer {
                             consumerRecord.partition(), consumerRecord.key(), consumerRecord.value());
                 }
             }
+        }
+        try {
+            // 手动提交偏移量，异步提交
+            consumer.commitAsync();
+        } catch (Exception e) {
+            // 手动提交偏移量，同步提交
+            consumer.commitSync();
         }
     }
 }

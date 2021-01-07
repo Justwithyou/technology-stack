@@ -20,6 +20,7 @@
         <module name="spring-jdbc" />
         <module name="spring-security" />
         <module name="spring-starter" />
+        <module name="bigdata-flink" />
         <module name="class-loader" />
         <module name="spring-rocketmq" />
         <module name="maven-stack" />
@@ -29,6 +30,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bigdata" options="-parameters" />
+      <module name="bigdata-flink" options="-parameters" />
       <module name="class-loader" options="-parameters" />
       <module name="data-encrypt" options="-parameters" />
       <module name="excel-poi-util" options="-parameters" />

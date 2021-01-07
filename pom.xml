@@ -20,6 +20,7 @@
         <module>spring-redis</module>
         <module>spring-rabbitmq</module>
         <module>spring-rocketmq</module>
+        <module>bigdata</module>
     </modules>
 
     <parent>
@@ -55,6 +56,21 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.2.Final</version>
+        </dependency>
+        <!-- GraphQL依赖 -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java</artifactId>
+            <version>15.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
     </dependencies>
 
